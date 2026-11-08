@@ -1,0 +1,26 @@
+Database:
+  Host: 127.0.0.1
+  Port: 5433
+  User: postgres
+  Password: tendean
+  DbName: e_wallet
+  SslMode: disable
+  TimeZone: Asia/Bangkok
+Server:
+  Port: 8080
+  BaseURL: http://localhost:8080
+Redis:
+  Host: localhost
+  Port: 6379
+  Password: ""
+RabbitMQ:
+  Host: localhost
+  Port: 5672
+  User: guest
+  Password: guest
+  Vhost: ""
+  Exchange: payment.exchange
+  PaymentQueue: payment.queue
+  PaymentRoutingKey: payment.queue
+  StatusQueue: status.queue
+  StatusRoutingKey: status.queue

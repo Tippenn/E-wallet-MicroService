@@ -1,0 +1,68 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tendean
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  core-service:
+    build: ./core-service
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_USER: postgres
+      DATABASE_DBNAME: core_db
+      DATABASE_PORT: 5432
+      REDIS_HOST: redis
+      RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+  payment-service:
+    build: ./payment-service
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_USER: postgres
+      DATABASE_DBNAME: payment_db
+      DATABASE_PORT: 5432
+      RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  rabbitmq_data:

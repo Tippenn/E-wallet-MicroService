@@ -1,0 +1,19 @@
+Database:
+  Host: 127.0.0.1
+  Port: 5433
+  User: postgres
+  Password: tendean
+  DbName: payment_db
+  SslMode: disable
+  TimeZone: Asia/Bangkok
+RabbitMQ:
+  Host: localhost
+  Port: 5672
+  User: guest
+  Password: guest
+  Vhost: ""
+  Exchange: payment.exchange
+  PaymentQueue: payment.queue
+  PaymentRoutingKey: payment.queue
+  StatusQueue: status.queue
+  StatusRoutingKey: status.queue
