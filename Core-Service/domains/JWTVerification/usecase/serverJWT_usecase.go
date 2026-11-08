@@ -5,9 +5,9 @@ import (
 	"errors"
 	"time"
 
-	"e-wallet-system-api/domains/JWTVerification"
-	"e-wallet-system-api/domains/JWTVerification/entities"
-	"e-wallet-system-api/domains/JWTVerification/models/request"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/models/request"
 )
 
 type serverJWTUseCase struct {

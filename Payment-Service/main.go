@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"e-wallet-system-api/domains/payment/entities"
-	"e-wallet-system-api/wizards"
+	"github.com/Tippenn/E-wallet-MicroService/domains/payment/entities"
+	"github.com/Tippenn/E-wallet-MicroService/wizards"
 )
 
 func main() {
@@ -26,7 +26,6 @@ func main() {
 		log.Fatal("migration failed: ", err)
 	}
 	wizards.StartAllConsumer(ctx)
-
 
 	log.Println("payment-service started")
 	<-ctx.Done()

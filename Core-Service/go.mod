@@ -1,4 +1,4 @@
-module e-wallet-system-api
+module github.com/Tippenn/E-wallet-MicroService
 
 go 1.27.1
 

@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"strings"
 
-	"e-wallet-system-api/shared/utils"
+	"github.com/Tippenn/E-wallet-MicroService/shared/utils"
 
-	"e-wallet-system-api/domains/JWTVerification"
-	"e-wallet-system-api/domains/JWTVerification/models/request"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/models/request"
 
 	"github.com/gin-gonic/gin"
 )

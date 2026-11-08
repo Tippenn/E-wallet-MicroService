@@ -8,11 +8,11 @@ import (
 	"os/signal"
 	"syscall"
 
-	JWTVerification "e-wallet-system-api/domains/JWTVerification/entities"
-	transaction "e-wallet-system-api/domains/transactions/entities"
-	users "e-wallet-system-api/domains/users/entities"
-	wallets "e-wallet-system-api/domains/wallets/entities"
-	"e-wallet-system-api/wizards"
+	JWTVerification "github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/entities"
+	transaction "github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
+	users "github.com/Tippenn/E-wallet-MicroService/domains/users/entities"
+	wallets "github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
+	"github.com/Tippenn/E-wallet-MicroService/wizards"
 
 	"github.com/gin-gonic/gin"
 )

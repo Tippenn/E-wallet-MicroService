@@ -1,11 +1,11 @@
 package wizards
 
 import (
-	"e-wallet-system-api/config"
-	paymentRepository "e-wallet-system-api/domains/payment/repository"
-	paymentUsecase "e-wallet-system-api/domains/payment/usecase"
-	"e-wallet-system-api/infrastructure/database"
-	"e-wallet-system-api/infrastructure/messaging"
+	"github.com/Tippenn/E-wallet-MicroService/config"
+	paymentRepository "github.com/Tippenn/E-wallet-MicroService/domains/payment/repository"
+	paymentUsecase "github.com/Tippenn/E-wallet-MicroService/domains/payment/usecase"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/database"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/messaging"
 )
 
 var (

@@ -2,11 +2,12 @@ package usecase
 
 import (
 	"context"
-	"e-wallet-system-api/domains/payment"
-	"e-wallet-system-api/infrastructure/messaging"
-	"e-wallet-system-api/shared/dto/message"
 	"encoding/json"
 	"time"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/payment"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/messaging"
+	"github.com/Tippenn/E-wallet-MicroService/shared/dto/message"
 )
 
 type paymentUseCase struct {
@@ -50,7 +51,7 @@ func (p *paymentUseCase) ProcessPayment(ctx context.Context, body []byte) error 
 	err = p.repo.CreatePayment(ctx, msg.PaymentID, msg.UserID, msg.Amount)
 	if err != nil {
 		return err
-	} 
+	}
 
 	//payment success
 	body, err = json.Marshal(message.PaymentStatusMessage{

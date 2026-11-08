@@ -1,21 +1,21 @@
 package wizards
 
 import (
-	"e-wallet-system-api/config"
-	serverJWTRepository "e-wallet-system-api/domains/JWTVerification/repository"
-	serverJWTUsecase "e-wallet-system-api/domains/JWTVerification/usecase"
-	transactionshttp "e-wallet-system-api/domains/transactions/handler/http"
-	transactionsRepository "e-wallet-system-api/domains/transactions/repository"
-	transactionsUsecase "e-wallet-system-api/domains/transactions/usecase"
-	userhttp "e-wallet-system-api/domains/users/handler/http"
-	userRepository "e-wallet-system-api/domains/users/repository"
-	userUsecase "e-wallet-system-api/domains/users/usecase"
-	walletshttp "e-wallet-system-api/domains/wallets/handler/http"
-	walletsRepository "e-wallet-system-api/domains/wallets/repository"
-	walletsUsecase "e-wallet-system-api/domains/wallets/usecase"
-	"e-wallet-system-api/infrastructure/cache"
-	"e-wallet-system-api/infrastructure/database"
-	"e-wallet-system-api/infrastructure/messaging"
+	"github.com/Tippenn/E-wallet-MicroService/config"
+	serverJWTRepository "github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/repository"
+	serverJWTUsecase "github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/usecase"
+	transactionshttp "github.com/Tippenn/E-wallet-MicroService/domains/transactions/handler/http"
+	transactionsRepository "github.com/Tippenn/E-wallet-MicroService/domains/transactions/repository"
+	transactionsUsecase "github.com/Tippenn/E-wallet-MicroService/domains/transactions/usecase"
+	userhttp "github.com/Tippenn/E-wallet-MicroService/domains/users/handler/http"
+	userRepository "github.com/Tippenn/E-wallet-MicroService/domains/users/repository"
+	userUsecase "github.com/Tippenn/E-wallet-MicroService/domains/users/usecase"
+	walletshttp "github.com/Tippenn/E-wallet-MicroService/domains/wallets/handler/http"
+	walletsRepository "github.com/Tippenn/E-wallet-MicroService/domains/wallets/repository"
+	walletsUsecase "github.com/Tippenn/E-wallet-MicroService/domains/wallets/usecase"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/cache"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/database"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/messaging"
 )
 
 var (

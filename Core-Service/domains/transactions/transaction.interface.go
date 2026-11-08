@@ -2,9 +2,10 @@ package transactions
 
 import (
 	"context"
-	"e-wallet-system-api/domains/transactions/entities"
-	"e-wallet-system-api/domains/transactions/models/response"
-	"e-wallet-system-api/domains/wallets"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/models/response"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
 )
 
 type TransactionUseCase interface {

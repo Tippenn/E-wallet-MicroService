@@ -2,11 +2,12 @@ package usecase
 
 import (
 	"context"
-	"e-wallet-system-api/domains/wallets"
-	"e-wallet-system-api/domains/wallets/entities"
-	"e-wallet-system-api/domains/wallets/models/response"
 	"errors"
 	"fmt"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/models/response"
 )
 
 type walletUseCase struct {

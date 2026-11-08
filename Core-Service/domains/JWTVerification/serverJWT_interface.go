@@ -3,8 +3,8 @@ package JWTVerification
 import (
 	"context"
 
-	"e-wallet-system-api/domains/JWTVerification/entities"
-	"e-wallet-system-api/domains/JWTVerification/models/request"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/models/request"
 )
 
 type ServerJWTUseCase interface {

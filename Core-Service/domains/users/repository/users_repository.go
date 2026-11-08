@@ -3,9 +3,9 @@ package repository
 import (
 	"context"
 
-	"e-wallet-system-api/domains/users"
-	"e-wallet-system-api/domains/users/entities"
-	"e-wallet-system-api/infrastructure/database"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users/entities"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/database"
 )
 
 type userRepository struct {

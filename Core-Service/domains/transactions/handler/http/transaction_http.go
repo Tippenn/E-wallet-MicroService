@@ -1,11 +1,12 @@
 package http
 
 import (
-	"e-wallet-system-api/domains/transactions"
-	"e-wallet-system-api/domains/transactions/models/request"
-	"e-wallet-system-api/shared/dto/responses"
 	"net/http"
 	"strconv"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/models/request"
+	"github.com/Tippenn/E-wallet-MicroService/shared/dto/responses"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

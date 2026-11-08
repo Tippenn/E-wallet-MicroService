@@ -1,7 +1,7 @@
 package http
 
 import (
-	"e-wallet-system-api/domains/wallets"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

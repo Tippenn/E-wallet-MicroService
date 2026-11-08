@@ -2,17 +2,18 @@ package usecase
 
 import (
 	"context"
-	"e-wallet-system-api/domains/transactions"
-	"e-wallet-system-api/domains/transactions/entities"
-	"e-wallet-system-api/domains/transactions/models/response"
-	"e-wallet-system-api/domains/users"
-	"e-wallet-system-api/domains/wallets"
-	"e-wallet-system-api/infrastructure/messaging"
-	"e-wallet-system-api/shared/dto/message"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"time"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/models/response"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/messaging"
+	"github.com/Tippenn/E-wallet-MicroService/shared/dto/message"
 
 	"github.com/google/uuid"
 )

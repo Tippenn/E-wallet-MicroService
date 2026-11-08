@@ -2,10 +2,11 @@ package repository
 
 import (
 	"context"
-	"e-wallet-system-api/domains/wallets"
-	"e-wallet-system-api/domains/wallets/entities"
-	"e-wallet-system-api/infrastructure/database"
 	"errors"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/database"
 
 	"gorm.io/gorm"
 )

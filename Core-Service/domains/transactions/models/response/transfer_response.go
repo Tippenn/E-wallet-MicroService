@@ -1,7 +1,7 @@
 package response
 
 import (
-	"e-wallet-system-api/domains/transactions/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
 )
 
 type TransferResponse struct {

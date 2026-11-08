@@ -1,8 +1,8 @@
 package entities
 
 import (
-	ServerJWT "e-wallet-system-api/domains/JWTVerification/entities"
-	Wallet "e-wallet-system-api/domains/wallets/entities"
+	ServerJWT "github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/entities"
+	Wallet "github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
 )
 
 type User struct {

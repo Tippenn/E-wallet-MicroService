@@ -3,9 +3,9 @@ package users
 import (
 	"context"
 
-	"e-wallet-system-api/domains/users/entities"
-	"e-wallet-system-api/domains/users/models/request"
-	"e-wallet-system-api/domains/users/models/response"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users/models/request"
+	"github.com/Tippenn/E-wallet-MicroService/domains/users/models/response"
 )
 
 type UserUseCase interface {

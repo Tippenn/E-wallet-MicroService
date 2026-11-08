@@ -6,9 +6,9 @@ import (
 	"errors"
 	"time"
 
-	"e-wallet-system-api/domains/JWTVerification"
-	"e-wallet-system-api/domains/JWTVerification/entities"
-	"e-wallet-system-api/infrastructure/cache"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification"
+	"github.com/Tippenn/E-wallet-MicroService/domains/JWTVerification/entities"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/cache"
 
 	"github.com/redis/go-redis/v9"
 )

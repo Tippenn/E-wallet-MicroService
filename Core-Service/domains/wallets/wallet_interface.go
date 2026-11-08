@@ -3,8 +3,8 @@ package wallets
 import (
 	"context"
 
-	"e-wallet-system-api/domains/wallets/entities"
-	"e-wallet-system-api/domains/wallets/models/response"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/models/response"
 )
 
 type WalletUseCase interface {

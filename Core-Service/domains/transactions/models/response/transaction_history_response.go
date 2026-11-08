@@ -1,6 +1,6 @@
 package response
 
-import "e-wallet-system-api/domains/transactions/entities"
+import "github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
 
 type TransactionHistoryResponse struct {
 	Transactions []entities.Transaction `json:"transactions"`

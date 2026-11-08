@@ -8,7 +8,7 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 
-	"e-wallet-system-api/config"
+	"github.com/Tippenn/E-wallet-MicroService/config"
 )
 
 type RabbitMQBroker struct {

@@ -1,13 +1,13 @@
 package wizards
 
 import (
-	"e-wallet-system-api/shared/middleware"
+	"github.com/Tippenn/E-wallet-MicroService/shared/middleware"
 
 	"github.com/gin-gonic/gin"
 )
 
 func RegisterServer(router *gin.Engine) {
-	
+
 	api := router.Group("/api/v1")
 	{
 		//User

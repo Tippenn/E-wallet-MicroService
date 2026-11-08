@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"e-wallet-system-api/config"
+	"github.com/Tippenn/E-wallet-MicroService/config"
 
 	"github.com/redis/go-redis/v9"
 )

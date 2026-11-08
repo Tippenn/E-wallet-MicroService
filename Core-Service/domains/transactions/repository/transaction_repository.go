@@ -2,11 +2,12 @@ package repository
 
 import (
 	"context"
-	"e-wallet-system-api/domains/transactions"
-	"e-wallet-system-api/domains/transactions/entities"
-	"e-wallet-system-api/infrastructure/database"
 	"errors"
 	"time"
+
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions"
+	"github.com/Tippenn/E-wallet-MicroService/domains/transactions/entities"
+	"github.com/Tippenn/E-wallet-MicroService/infrastructure/database"
 )
 
 type transactionRepository struct {

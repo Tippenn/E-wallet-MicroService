@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"e-wallet-system-api/config"
+	"github.com/Tippenn/E-wallet-MicroService/config"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
