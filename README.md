@@ -42,8 +42,8 @@ flowchart LR
 **Requirements:** Docker and Docker Compose
 
 ```bash
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/Tippenn/E-wallet-MicroService.git
+cd E-wallet-MicroService
 docker compose up --build
 ```
 
