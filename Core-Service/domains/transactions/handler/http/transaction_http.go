@@ -96,7 +96,7 @@ func (handler *TransactionHttp) Transfer(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"transactionID": transferResponse.TransactionID,
 		"status":        transferResponse.Status,
-		"message":       "TopUp successful!",
+		"message":       "Transfer successful!",
 	})
 }
 
@@ -139,7 +139,7 @@ func (handler *TransactionHttp) Pay(c *gin.Context) {
 
 	c.JSON(200, gin.H{
 		"transactionID": payResponse.TransactionID,
-		"message":       "TopUp successful!",
+		"message":       "Pay successful!",
 		"newBalance":    payResponse.NewBalance,
 	})
 }

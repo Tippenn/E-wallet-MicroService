@@ -6,7 +6,7 @@ import (
 
 type Transaction struct {
 	Id             string            `gorm:"primaryKey" json:"id"`
-	IdemptonecyKey string            `gorm:"uniqueIndex"`
+	IdemptonecyKey *string            `gorm:"uniqueIndex"`
 	Type           TransactionType   `json:"type"`
 	Amount         float64           `json:"amount"`
 	From           *string           `json:"from"`

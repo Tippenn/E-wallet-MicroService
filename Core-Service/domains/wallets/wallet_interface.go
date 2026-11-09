@@ -11,6 +11,7 @@ type WalletUseCase interface {
 	CheckBalance(ctx context.Context, UserId string) (*response.CheckBalanceResponse, error)
 	AddBalanceByUserId(ctx context.Context, UserId string, amount float64) (*entities.Wallet, error)
 	DeductBalanceByUserId(ctx context.Context, UserId string, amount float64) (*entities.Wallet, error)
+	CreateWallet(ctx context.Context, userId string, balance float64) (*entities.Wallet, error)
 }
 
 type WalletRepository interface {

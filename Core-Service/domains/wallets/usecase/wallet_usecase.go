@@ -8,6 +8,7 @@ import (
 	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
 	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/entities"
 	"github.com/Tippenn/E-wallet-MicroService/domains/wallets/models/response"
+	"github.com/google/uuid"
 )
 
 type walletUseCase struct {
@@ -16,6 +17,16 @@ type walletUseCase struct {
 
 func NewWalletUseCase(repo wallets.WalletRepository) wallets.WalletUseCase {
 	return walletUseCase{repo: repo}
+}
+
+// CreateWallet implements [wallets.WalletUseCase].
+func (w walletUseCase) CreateWallet(ctx context.Context, userId string, balance float64) (*entities.Wallet, error) {
+	wid := uuid.New().String()
+	wallet, err := w.repo.CreateWallet(ctx, wid, userId, balance)
+	if err != nil {
+		return nil, err
+	}
+	return wallet, nil
 }
 
 // CheckBalance implements [wallets.WalletUseCase].
@@ -37,12 +48,20 @@ func (w walletUseCase) AddBalanceByUserId(ctx context.Context, Id string, amount
 		return nil, errors.New("amount must be positive")
 	}
 
-	wallet, err := w.repo.FindWalletbyUserID(ctx, Id)
+	_, err := w.repo.FindWalletbyUserID(ctx, Id)
 	if err != nil {
 		return nil, err
 	}
 
-	w.repo.UpdateWallet(ctx, Id, amount)
+	err = w.repo.UpdateWallet(ctx, Id, amount)
+	if err != nil {
+		return nil, err
+	}
+
+	wallet, err := w.repo.FindWalletbyUserID(ctx, Id)
+	if err != nil {
+		return nil, err
+	}
 
 	return wallet, nil
 }
@@ -63,7 +82,15 @@ func (w walletUseCase) DeductBalanceByUserId(ctx context.Context, Id string, amo
 		return nil, errors.New("insufficient balance")
 	}
 
-	w.repo.UpdateWallet(ctx, Id, -amount)
+	err = w.repo.UpdateWallet(ctx, Id, -amount)
+	if err != nil {
+		return nil, err
+	}
+
+	wallet, err = w.repo.FindWalletbyUserID(ctx, Id)
+	if err != nil {
+		return nil, err
+	}
 
 	return wallet, nil
 }

@@ -39,7 +39,7 @@ func (handler *Userhttp) Register(c *gin.Context) {
 		return
 	}
 
-	accessToken, err := handler.uc.SignUp(ctx, requestBody)
+	signupResponse, err := handler.uc.SignUp(ctx, requestBody)
 
 	if err != nil {
 		c.AbortWithStatusJSON(401, gin.H{
@@ -48,9 +48,7 @@ func (handler *Userhttp) Register(c *gin.Context) {
 		return
 	}
 
-	c.JSON(200, gin.H{
-		"access_token": accessToken,
-	})
+	c.JSON(201, signupResponse)
 }
 
 func (handler *Userhttp) Login(c *gin.Context) {

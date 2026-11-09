@@ -39,8 +39,8 @@ var (
 
 	//usecase
 	ServerJWTUc   = serverJWTUsecase.NewServerJWTUseCase(ServerJWTRepo)
-	UserUc        = userUsecase.NewUserUseCase(UserRepo, ServerJWTUc)
 	WalletUc      = walletsUsecase.NewWalletUseCase(WalletRepo)
+	UserUc        = userUsecase.NewUserUseCase(UserRepo, ServerJWTUc, WalletUc)
 	TransactionUc = transactionsUsecase.NewTransactionUseCase(TransactionRepo, TransactionTransactor, WalletUc, UserUc, RabbitMQBroker, Config.RabbitMQ.PaymentRoutingKey)
 
 	//http

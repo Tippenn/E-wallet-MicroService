@@ -22,7 +22,7 @@ func NewTransactionRepository(db database.Database) transactions.TransactionRepo
 func (t transactionRepository) CreateTransaction(ctx context.Context, transactionId string, idemptKey *string, amount float64, from *string, to string, status entities.TransactionStatus, types entities.TransactionType) error {
 	transaction := &entities.Transaction{
 		Id:             transactionId,
-		IdemptonecyKey: *idemptKey,
+		IdemptonecyKey: idemptKey,
 		Amount:         amount,
 		From:           from,
 		To:             to,
@@ -56,7 +56,7 @@ func (t transactionRepository) FindTransactionbyId(ctx context.Context, transact
 func (t transactionRepository) FindAllTransactionbyUserId(ctx context.Context, userId string) ([]*entities.Transaction, error) {
 	var transactions []*entities.Transaction
 	err := t.db.GetInstance().
-		Where("from_id = ? OR to_id = ?", userId, userId).
+		Where(`"from" = ? OR "to" = ?`, userId, userId).
 		Order("timestamp DESC").
 		Find(&transactions).Error
 	if err != nil {

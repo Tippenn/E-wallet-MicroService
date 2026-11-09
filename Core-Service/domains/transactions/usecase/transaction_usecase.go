@@ -144,13 +144,8 @@ func (t transactionUseCase) ShowHistory(ctx context.Context, userId string, limi
 
 // TopUp implements [transactions.TransactionUseCase].
 func (t transactionUseCase) TopUp(ctx context.Context, userID string, amount float64) (*response.TopUpResponse, error) {
-	wallet, err := t.walletUc.AddBalanceByUserId(ctx, userID, amount)
-	if err != nil {
-		return nil, err
-
-	}
 	topupId := uuid.New().String()
-	t.repo.CreateTransaction(ctx,
+	err := t.repo.CreateTransaction(ctx,
 		topupId,
 		nil,
 		amount,
@@ -159,6 +154,18 @@ func (t transactionUseCase) TopUp(ctx context.Context, userID string, amount flo
 		entities.Completed,
 		entities.TopUp,
 	)
+
+	if err != nil {
+		return nil, err
+
+	}
+
+	wallet, err := t.walletUc.AddBalanceByUserId(ctx, userID, amount)
+	if err != nil {
+		return nil, err
+
+	}
+
 	return &response.TopUpResponse{
 		TransactionID: topupId,
 		Message:       "Top-up Successful",
@@ -185,7 +192,7 @@ func (t transactionUseCase) Transfer(ctx context.Context, fromID string, toID st
 		&fromID,
 		toID,
 		entities.Completed,
-		entities.TransferIn,
+		entities.Transfer,
 	)
 	return &response.TransferResponse{
 		TransactionID: transferId,

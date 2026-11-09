@@ -10,6 +10,7 @@ import (
 	"github.com/Tippenn/E-wallet-MicroService/domains/users/entities"
 	"github.com/Tippenn/E-wallet-MicroService/domains/users/models/request"
 	"github.com/Tippenn/E-wallet-MicroService/domains/users/models/response"
+	"github.com/Tippenn/E-wallet-MicroService/domains/wallets"
 	"github.com/Tippenn/E-wallet-MicroService/shared/utils"
 
 	"github.com/google/uuid"
@@ -17,12 +18,13 @@ import (
 )
 
 type userUseCase struct {
-	repo  users.UserRepository
-	jwtUC serverJWT.ServerJWTUseCase
+	repo     users.UserRepository
+	jwtUC    serverJWT.ServerJWTUseCase
+	walletUC wallets.WalletUseCase
 }
 
-func NewUserUseCase(repo users.UserRepository, jwtUC serverJWT.ServerJWTUseCase) users.UserUseCase {
-	return userUseCase{repo: repo, jwtUC: jwtUC}
+func NewUserUseCase(repo users.UserRepository, jwtUC serverJWT.ServerJWTUseCase, walletUC wallets.WalletUseCase) users.UserUseCase {
+	return userUseCase{repo: repo, jwtUC: jwtUC, walletUC: walletUC}
 }
 
 // Login implements [users.UserUseCase].
@@ -66,7 +68,7 @@ func (u userUseCase) SignUp(ctx context.Context, requests *request.SignUpRequest
 	if err != nil {
 		return nil, err
 	}
-
+	// create user
 	uid := uuid.New().String()
 	u.repo.CreateUser(ctx,
 		uid,
@@ -74,6 +76,11 @@ func (u userUseCase) SignUp(ctx context.Context, requests *request.SignUpRequest
 		requests.Name,
 		string(b),
 	)
+	//create wallet
+	_, err = u.walletUC.CreateWallet(ctx, uid, 10000)
+	if err != nil {
+		return nil, err
+	}
 
 	return &response.SignUpResponse{
 		UserId:  uid,

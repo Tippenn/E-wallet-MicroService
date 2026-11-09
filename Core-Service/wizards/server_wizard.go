@@ -24,6 +24,6 @@ func RegisterServer(router *gin.Engine) {
 	protected.POST("/transactions/topup", TransactionHttp.TopUp)
 	protected.POST("/transactions/transfer", TransactionHttp.Transfer)
 	protected.POST("/transactions/pay", TransactionHttp.Pay)
-	protected.POST("/transactions/history", TransactionHttp.History)
+	protected.GET("/transactions/history", TransactionHttp.History)
 
 }
